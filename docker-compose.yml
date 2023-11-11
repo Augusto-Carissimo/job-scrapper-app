@@ -1,21 +1,21 @@
 version: '3'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  scraper:
+    build: .
     depends_on:
       - database
-    ports:
-      - "3000:3000"
+      - selenium-server
+    environment:
+      SELENIUM_HOST: selenium-server
+    tty: true
+    stdin_open: true
+    env_file: .env
     volumes:
       - .:/app
-      - gem_cache:/usr/local/bundle/gems
-      - node_modules:/app/node_modules
-    env_file: .env
-    environment:
-      RAILS_ENV: development
+      - bundler-store:/usr/local/bundle
+    ports:
+      - 3000:3000
 
   database:
     image: postgres
@@ -26,7 +26,14 @@ services:
       - db_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
+  selenium-server:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
+    volumes:
+      - /dev/shm:/dev/shm
+
 volumes:
-  gem_cache:
   db_data:
-  node_modules:
+  bundler-store:
