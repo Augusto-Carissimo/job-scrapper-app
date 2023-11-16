@@ -1,0 +1,28 @@
+<button> <%= link_to "Scrapping for new positions", position_scraper_path %> </button>
+
+<table style="width:80%">
+  <tr>
+    <th>Title</th>
+    <th>Company</th>
+    <th>Link</th>
+    <th>Website</th>
+  </tr>
+  <% if @positions %>
+    <% @positions.each do |position| %>
+      <tr>
+        <td>
+          <%= position.title %>
+        </td>
+        <td>
+          <%= position.company %>
+        </td>
+        <td>
+          <a href="<%= position.link %>"> Link <a>
+        </td>
+        <td>
+          <%= position.website %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
