@@ -7,6 +7,6 @@ class PositionController < ApplicationController
     remote_co = RemoteCo.new
     remote_co.search
     remote_co.quit
-    redirect_to root
+    redirect_to root_path
   end
 end
