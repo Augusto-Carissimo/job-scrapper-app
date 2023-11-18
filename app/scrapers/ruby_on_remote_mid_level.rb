@@ -1,5 +1,3 @@
-require './config/environment.rb'
-
 class RubyOnRemoteMidLevel < Driver
 
   SEARCH_KEY = "https://rubyonremote.com/mid-level-remote-jobs/"
