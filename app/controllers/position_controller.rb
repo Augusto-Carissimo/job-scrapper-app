@@ -10,6 +10,9 @@ class PositionController < ApplicationController
     ruby_on_remote_junior = RubyOnRemoteJunior.new
     ruby_on_remote_junior.search
     ruby_on_remote_junior.quit
+    ruby_on_remote_junior = RubyOnRemoteMidLevel.new
+    ruby_on_remote_junior.search
+    ruby_on_remote_junior.quit
     redirect_to root_path
   end
 end
