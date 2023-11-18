@@ -1,5 +1,3 @@
-require './config/environment.rb'
-
 class RubyOnRemoteJunior < Driver
 
   SEARCH_KEY = "https://rubyonremote.com/junior-remote-jobs/"
