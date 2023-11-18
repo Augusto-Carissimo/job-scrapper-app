@@ -1,5 +1,3 @@
-require './config/environment.rb'
-
 class WorkingNomands < Driver
 
   SEARCH_KEY = "https://www.workingnomads.com/jobs?tag=ruby"
