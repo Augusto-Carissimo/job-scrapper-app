@@ -3,7 +3,7 @@ class WorkingNomands < Driver
   SEARCH_KEY = "https://www.workingnomads.com/jobs?tag=ruby"
 
   def search
-    p 'Starting Working Nomads search'
+    Rails.logger.info 'Starting Working Nomads search'
 
     @driver.navigate.to SEARCH_KEY
     begin
@@ -17,17 +17,17 @@ class WorkingNomands < Driver
           Position.create!(title:, company:, link:, website:)
         end
       rescue => e
-        e.message
+        Rails.logger.warn e.message
       end
 
-      p 'Search finished'
+      Rails.logger.info 'Search finished'
     rescue => e
-      p e.message
+      Rails.logger.warn e.message
     end
   end
 
   def quit
-    p 'Closing Driver'
+    Rails.logger.info 'Closing Driver'
 
     @driver.quit
   end

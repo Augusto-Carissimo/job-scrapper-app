@@ -3,7 +3,7 @@ class RemoteCo < Driver
   SEARCH_KEY = "https://remote.co/remote-jobs/search/?search_keywords=ruby"
 
   def search
-    p 'Starting Remote.Co search'
+    Rails.logger.info 'Starting Remote.Co search'
 
     @driver.navigate.to SEARCH_KEY
     wait = Selenium::WebDriver::Wait.new
@@ -21,14 +21,14 @@ class RemoteCo < Driver
         end
       end
 
-      p 'Search finished'
+      Rails.logger.info 'Search finished'
     rescue => e
-      p e.message
+      Rails.logger.warn e.message
     end
   end
 
   def quit
-    p 'Closing Driver'
+    Rails.logger.info 'Closing Driver'
 
     @driver.quit
   end

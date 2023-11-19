@@ -3,7 +3,7 @@ class RubyOnRemoteJunior < Driver
   SEARCH_KEY = "https://rubyonremote.com/junior-remote-jobs/"
 
   def search
-    p 'Starting Ruby On Remote Junior search'
+    Rails.logger.info 'Starting Ruby On Remote Junior search'
 
     @driver.navigate.to SEARCH_KEY
     begin
@@ -18,14 +18,14 @@ class RubyOnRemoteJunior < Driver
         end
       end
 
-      p 'Search finished'
+      Rails.logger.info 'Search finished'
     rescue => e
-      p e.message
+      Rails.logger.warn e.message
     end
   end
 
   def quit
-    p 'Closing Driver'
+    Rails.logger.info 'Closing Driver'
 
     @driver.quit
   end

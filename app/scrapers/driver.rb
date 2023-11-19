@@ -1,8 +1,9 @@
 require "selenium-webdriver"
+require "./config/environment.rb"
 
 class Driver
   def initialize
-    p 'Configuring Driver'
+    Rails.logger.info 'Configuring Driver'
     options = Selenium::WebDriver::Chrome::Options.new
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--disable-popup-blocking')
@@ -13,6 +14,6 @@ class Driver
       url: "http://#{ENV['SELENIUM_HOST']}:4444/wd/hub",
       options: options
       )
-    p 'Driver initialized'
+    Rails.logger.info 'Driver initialized'
   end
 end
