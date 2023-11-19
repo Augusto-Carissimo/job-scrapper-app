@@ -5,5 +5,5 @@ require_relative "application"
 Rails.application.initialize!
 
 Rails.logger = Logger.new(STDOUT)
-config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+Rails.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
 Rails.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
