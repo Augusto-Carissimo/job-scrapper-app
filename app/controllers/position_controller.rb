@@ -4,10 +4,11 @@ class PositionController < ApplicationController
   end
 
   def scraper
-    # Scraper.scrape
-    p '-'*50
+    Scraper.scrape
     positions = Position.where(created_at: Time.current.all_day).order('created_at ASC').reverse_order
-    PositionMailer.update(positions).deliver_now
+    if !positions.empty?
+      PositionMailer.update(positions).deliver_now
+    end
     redirect_to root_path
   end
 end
