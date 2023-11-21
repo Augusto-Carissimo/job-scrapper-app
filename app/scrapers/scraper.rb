@@ -10,11 +10,6 @@ class Scraper
     working_nomads
   end
 
-  private_class_method :remote_co
-  private_class_method :ruby_on_remote_junior
-  private_class_method :ruby_on_remote_mid_level
-  private_class_method :working_nomads
-
   def self.remote_co
     remote_co = RemoteCo.new
     remote_co.search
