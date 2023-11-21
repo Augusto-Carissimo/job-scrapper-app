@@ -11,26 +11,26 @@ class WorkingNomands < Driver
     assign_values(elements)
   rescue StandardError => e
     Rails.logger.warn e.message
-  end
 
   Rails.logger.info 'Search finished'
 rescue StandardError => e
   Rails.logger.warn e.message
-end
+  end
 
-def quit
-  Rails.logger.info 'Closing Driver'
-  @driver.quit
-end
+  def quit
+    Rails.logger.info 'Closing Driver'
+    @driver.quit
+  end
 
-private
+  private
 
-def assign_values(elements)
-  elements.each do |element|
-    title = element.find_element(:css, 'h4').text
-    company = element.find_element(:css, 'div.company.hidden-xs').text
-    link = element.find_element(:css, 'h4').find_element(:css, 'a').attribute('href')
-    website = 'WorkingNomands'
-    Position.create!(title:, company:, link:, website:) if Position.find_by(link:).nil?
+  def assign_values(elements)
+    elements.each do |element|
+      title = element.find_element(:css, 'h4').text
+      company = element.find_element(:css, 'div.company.hidden-xs').text
+      link = element.find_element(:css, 'h4').find_element(:css, 'a').attribute('href')
+      website = 'WorkingNomands'
+      Position.create!(title:, company:, link:, website:) if Position.find_by(link:).nil?
+    end
   end
 end
