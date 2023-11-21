@@ -1,5 +1,7 @@
-require "selenium-webdriver"
-require "./config/environment.rb"
+# frozen_string_literal: true
+
+require 'selenium-webdriver'
+require './config/environment'
 
 class Driver
   def initialize
@@ -8,12 +10,11 @@ class Driver
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--disable-popup-blocking')
     options.add_argument('--disable-translate')
-
     @driver = Selenium::WebDriver.for(
       :remote,
       url: "http://#{ENV['SELENIUM_HOST']}:4444/wd/hub",
-      options: options
-      )
+      options:
+    )
     Rails.logger.info 'Driver initialized'
   end
 end

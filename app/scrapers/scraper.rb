@@ -1,7 +1,8 @@
-require "./config/environment.rb"
+# frozen_string_literal: true
+
+require './config/environment'
 
 class Scraper
-
   def self.scrape
     remote_co
     ruby_on_remote_junior
@@ -9,7 +10,10 @@ class Scraper
     working_nomads
   end
 
-  private
+  private_class_method :remote_co
+  private_class_method :ruby_on_remote_junior
+  private_class_method :ruby_on_remote_mid_level
+  private_class_method :working_nomads
 
   def self.remote_co
     remote_co = RemoteCo.new
