@@ -20,11 +20,10 @@ end
 
 def quit
   Rails.logger.info 'Closing Driver'
-
   @driver.quit
 end
 
-  private
+private
 
 def assign_values(elements)
   elements.each do |element|
