@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require './config/environment'
 
 class WorkingNomands < Driver
   SEARCH_KEY = 'https://www.workingnomads.com/jobs?tag=ruby'
@@ -9,9 +10,6 @@ class WorkingNomands < Driver
     @driver.navigate.to SEARCH_KEY
     elements = @driver.find_element(:class, 'jobs-list').find_elements(:class, 'ng-scope')
     assign_values(elements)
-  rescue StandardError => e
-    Rails.logger.warn e.message
-
   Rails.logger.info 'Search finished'
 rescue StandardError => e
   Rails.logger.warn e.message
@@ -31,6 +29,8 @@ rescue StandardError => e
       link = element.find_element(:css, 'h4').find_element(:css, 'a').attribute('href')
       website = 'WorkingNomands'
       Position.create!(title:, company:, link:, website:) if Position.find_by(link:).nil?
+    rescue StandardError => e
+      Rails.logger.debbug e.message
     end
   end
 end
