@@ -11,17 +11,19 @@ class RubyOnRemoteMidLevel < Driver
     elements = @driver.find_element(:css, 'main').find_elements(:css, 'ul')[1].find_elements(:css, 'li')
     assign_values(elements)
     Rails.logger.info 'Search finished'
+
   rescue StandardError => e
     Rails.logger.warn e.message
-  end
 
-  def quit
-    Rails.logger.info 'Closing Driver'
-
-    @driver.quit
+    quit
   end
 
   private
+
+  def quit
+    Rails.logger.info 'Closing Driver'
+    @driver.quit
+  end
 
   def assign_values(elements)
     elements.each do |element|

@@ -5,9 +5,9 @@ class PositionController < ApplicationController
 
   def scraper
     Scraper.scrape
-    if !positions.empty?
-      PositionMailer.update(positions).deliver_now
-    end
+    # if !positions.empty?
+    #   PositionMailer.update(positions).deliver_now
+    # end
     redirect_to root_path
   end
 
