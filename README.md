@@ -14,3 +14,15 @@ google_smtp:
 execute `sudo docker compose up -d --build`
 
 visit [localhost:3000](http://localhost:3000/)
+
+Adding:
+Planet Argon
+OmbuLabs
+RailsFactory
+RailsCarma
+reinteractive
+RubyGarage
+netguru
+thoughtbot
+FullStack Labs
+Evil Martians
