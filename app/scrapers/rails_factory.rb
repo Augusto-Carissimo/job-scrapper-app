@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require './config/environment'
-
 class RailsFactory < Driver
   SEARCH_KEY = 'https://railsfactory.com/careers'
 

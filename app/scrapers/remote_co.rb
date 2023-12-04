@@ -12,19 +12,13 @@ class RemoteCo < Driver
     assign_values(elements)
 
     Rails.logger.info 'Search finished'
+    quit
 
   rescue StandardError => e
     Rails.logger.warn e.message
-
-    quit
   end
 
   private
-
-  def quit
-    Rails.logger.info 'Closing Driver'
-    @driver.quit
-  end
 
   def wait
     wait = Selenium::WebDriver::Wait.new

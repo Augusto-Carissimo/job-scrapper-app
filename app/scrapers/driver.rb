@@ -17,4 +17,9 @@ class Driver
     )
     Rails.logger.info 'Driver initialized'
   end
+
+  def quit
+    Rails.logger.info 'Closing Driver'
+    @driver.quit
+  end
 end

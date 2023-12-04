@@ -10,20 +10,15 @@ class WorkingNomands < Driver
     @driver.navigate.to SEARCH_KEY
     elements = @driver.find_element(:class, 'jobs-list').find_elements(:class, 'ng-scope')
     assign_values(elements)
+
     Rails.logger.info 'Search finished'
+    quit
 
   rescue StandardError => e
     Rails.logger.warn e.message
-
-    quit
   end
 
   private
-
-  def quit
-    Rails.logger.info 'Closing Driver'
-    @driver.quit
-  end
 
   def assign_values(elements)
     elements.each do |element|
