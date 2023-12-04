@@ -9,10 +9,11 @@ class RailsFactory < Driver
     elements = @driver.find_element(:class, 'career-loop-content').find_elements(:css, 'article.noo_job.hent')
     assign_values(elements)
     Rails.logger.info 'Search finished'
-    quit
 
   rescue StandardError => e
     Rails.logger.warn e.message
+  ensure
+    quit
   end
 
   private

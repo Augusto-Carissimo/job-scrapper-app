@@ -10,10 +10,11 @@ class Ombulabs < Driver
     assign_values if element != "We don't have any open positions at the moment. Check back soon or keep an eye on Twitter and LinkedIn, we post new job openings there as they become available."
 
     Rails.logger.info 'Search finished'
-    quit
 
   rescue StandardError => e
     Rails.logger.warn e.message
+  ensure
+    quit
   end
 
   private

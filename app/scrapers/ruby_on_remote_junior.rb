@@ -10,10 +10,11 @@ class RubyOnRemoteJunior < Driver
     assign_values(elements)
 
     Rails.logger.info 'Search finished'
-    quit
 
   rescue StandardError => e
     Rails.logger.warn e.message
+  ensure
+    quit
   end
 
   private
