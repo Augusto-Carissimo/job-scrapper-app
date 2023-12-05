@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require './config/environment'
 
-class WorkingNomands < Driver
+class WorkingNomand < Driver
   SEARCH_KEY = 'https://www.workingnomads.com/jobs?tag=ruby'
 
   def search

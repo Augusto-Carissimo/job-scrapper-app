@@ -10,7 +10,6 @@ class RailsGarage < Driver
                       .find_elements(:css, 'div.col-md-6.service-card')
     assign_values(elements)
     Rails.logger.info 'Search finished'
-
   rescue StandardError => e
     Rails.logger.warn e.message
   ensure

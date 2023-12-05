@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-class RailsFactory < Driver
-  SEARCH_KEY = 'https://railsfactory.com/careers'
+class Reinteractive < Driver
+  SEARCH_KEY = 'https://reinteractive.com/careers'
 
   def search
-    Rails.logger.info 'Starting Rails Carma search'
+    Rails.logger.info 'Starting Reinteractive search'
     @driver.navigate.to SEARCH_KEY
-    elements = @driver.find_element(:class, 'career-loop-content')
-                      .find_elements(:css, 'article.noo_job.hent')
+    elements = @driver.find_element(:id, 'SC-ContentBlock-p-left-careers')
+                        .find_element(:css, 'ul')
+                        .find_elements(:css, 'li')
     assign_values(elements)
     Rails.logger.info 'Search finished'
   rescue StandardError => e
@@ -21,9 +22,9 @@ class RailsFactory < Driver
   def assign_values(elements)
     elements.each do |element|
       title = element.text
-      company = 'FactoryRails'
-      link = element.find_element(:css, 'a.btn.btn-primary.apply-btn').attribute('href')
-      website = 'FactoryRails'
+      company = 'Reinteractive'
+      link = 'https://reinteractive.com/careers'
+      website = 'Reinteractive'
       Position.create!(title:, company:, link:, website:) if Position.find_by(title:).nil?
     end
   end

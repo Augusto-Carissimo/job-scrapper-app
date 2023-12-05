@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Ombulabs < Driver
+class Ombulab < Driver
   SEARCH_KEY = 'https://www.ombulabs.com/jobs'
 
   def search
