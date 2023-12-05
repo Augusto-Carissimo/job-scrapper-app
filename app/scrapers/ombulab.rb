@@ -18,7 +18,7 @@ class Ombulab < Driver
   private
 
   def assign_values
-    title = 'New position'
+    title = 'New position in Ombulabs'
     company = 'Ombulabs'
     link = 'https://www.ombulabs.com/jobs'
     website = 'REFACTOR SCRAPER TO SAVE CORRECT LINK'
