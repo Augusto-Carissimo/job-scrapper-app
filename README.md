@@ -17,9 +17,7 @@ visit [localhost:3000](http://localhost:3000/)
 
 Adding:
 Planet Argon
-RailsCarma
 reinteractive
-RubyGarage
 netguru
 thoughtbot
 FullStack Labs

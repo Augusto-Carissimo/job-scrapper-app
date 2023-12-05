@@ -4,7 +4,7 @@ require './config/environment'
 
 class Scraper
   def self.scrape
-    [RemoteCo, RubyOnRemoteJunior, RubyOnRemoteMidLevel, WorkingNomands, Ombulabs, RailsFactory,RailsCarma]
+    [RemoteCo, RubyOnRemoteJunior, RubyOnRemoteMidLevel, WorkingNomands, Ombulabs, RailsFactory,RailsCarma, RailsGarage]
       .map { |scraper| scraper.new.search }
   end
 end
