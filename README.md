@@ -17,8 +17,6 @@ visit [localhost:3000](http://localhost:3000/)
 
 Adding:
 Planet Argon
-reinteractive
-netguru
 thoughtbot
 FullStack Labs
 Evil Martians
