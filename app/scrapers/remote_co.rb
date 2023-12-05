@@ -5,14 +5,12 @@ class RemoteCo < Driver
 
   def search
     Rails.logger.info 'Starting Remote.Co search'
-
     @driver.navigate.to SEARCH_KEY
     wait
-    elements = @driver.find_elements(:class, 'job_listings')[-1].find_elements(:class, 'card ')
+    elements = @driver.find_elements(:class, 'job_listings')[-1]
+                      .find_elements(:class, 'card ')
     assign_values(elements)
-
     Rails.logger.info 'Search finished'
-
   rescue StandardError => e
     Rails.logger.warn e.message
   ensure

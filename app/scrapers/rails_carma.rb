@@ -8,9 +8,7 @@ class RailsCarma < Driver
     @driver.navigate.to SEARCH_KEY
     elements = @driver.find_elements(:css, 'div.uael-module-content.uael-infobox.uael-imgicon-style-normal.uael-infobox-left.infobox-has-icon.uael-infobox-icon-above-title.uael-infobox-link-type-button')
     assign_values(elements)
-
     Rails.logger.info 'Search finished'
-
   rescue StandardError => e
     Rails.logger.warn e.message
   ensure

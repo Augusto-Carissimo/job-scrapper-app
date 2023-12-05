@@ -6,11 +6,9 @@ class RailsGarage < Driver
   def search
     Rails.logger.info 'Starting Rails Garage search'
     @driver.navigate.to SEARCH_KEY
-    elements = @driver
-                .find_element(:css, 'section.vacancies')
-                .find_elements(:css, 'div.col-md-6.service-card')
+    elements = @driver.find_element(:css, 'section.vacancies')
+                      .find_elements(:css, 'div.col-md-6.service-card')
     assign_values(elements)
-
     Rails.logger.info 'Search finished'
 
   rescue StandardError => e

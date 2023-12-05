@@ -4,9 +4,10 @@ class RailsFactory < Driver
   SEARCH_KEY = 'https://railsfactory.com/careers'
 
   def search
+    Rails.logger.info 'Starting Rails Carma search'
     @driver.navigate.to SEARCH_KEY
-
-    elements = @driver.find_element(:class, 'career-loop-content').find_elements(:css, 'article.noo_job.hent')
+    elements = @driver.find_element(:class, 'career-loop-content')
+                      .find_elements(:css, 'article.noo_job.hent')
     assign_values(elements)
     Rails.logger.info 'Search finished'
 

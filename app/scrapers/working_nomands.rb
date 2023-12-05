@@ -6,13 +6,11 @@ class WorkingNomands < Driver
 
   def search
     Rails.logger.info 'Starting Working Nomads search'
-
     @driver.navigate.to SEARCH_KEY
-    elements = @driver.find_element(:class, 'jobs-list').find_elements(:class, 'ng-scope')
+    elements = @driver.find_element(:class, 'jobs-list')
+                      .find_elements(:class, 'ng-scope')
     assign_values(elements)
-
     Rails.logger.info 'Search finished'
-
   rescue StandardError => e
     Rails.logger.warn e.message
   ensure

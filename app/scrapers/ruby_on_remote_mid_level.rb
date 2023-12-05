@@ -5,13 +5,13 @@ class RubyOnRemoteMidLevel < Driver
 
   def search
     Rails.logger.info 'Starting Ruby On Remote Mid Level search'
-
     @driver.navigate.to SEARCH_KEY
-    elements = @driver.find_element(:css, 'main').find_elements(:css, 'ul')[1].find_elements(:css, 'li')
+    elements = @driver.find_element(:css, 'main')
+                      .find_elements(:css, 'ul')[1]
+                      .find_elements(:css, 'li')
     assign_values(elements)
 
     Rails.logger.info 'Search finished'
-
   rescue StandardError => e
     Rails.logger.warn e.message
   ensure
