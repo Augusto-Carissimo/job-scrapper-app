@@ -4,8 +4,7 @@ require './config/environment'
 
 class Scraper
   def self.scrape
-    Dir.entries('./app/scrapers')
-      .map { |file| File.basename(file, File.extname(file)).classify }
-      .filter_map { |class_name| class_name.constantize.new.search unless class_name == 'Scraper' || class_name == 'Driver' || class_name.blank? }
+    Dir.entries('./app/scrapers').excluding('driver.rb', 'scraper.rb', '..', '.')
+      .map { |file| File.basename(file, File.extname(file)).classify.constantize.new.search }
   end
 end
