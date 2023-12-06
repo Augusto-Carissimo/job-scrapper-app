@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FullstackLabs < Driver
+class FullstackLab < Driver
   SEARCH_KEY = 'https://jobs.lever.co/fullstacklabs/'
 
   def search
