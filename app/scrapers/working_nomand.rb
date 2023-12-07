@@ -8,7 +8,7 @@ class WorkingNomand < Driver
     Rails.logger.info 'Starting Working Nomads search'
     @driver.navigate.to SEARCH_KEY
     elements = @driver.find_element(:class, 'jobs-list')
-                      .find_elements(:class, 'ng-scope')
+                      .find_elements(:css, 'div.job-desktop')
     assign_values(elements)
     Rails.logger.info 'Search finished'
   rescue StandardError => e
@@ -27,7 +27,7 @@ class WorkingNomand < Driver
       website = 'WorkingNomands'
       Position.create!(title:, company:, link:, website:) if Position.find_by(link:).nil?
     rescue StandardError => e
-      Rails.logger.debbug e.message
+      PositionController e.message
     end
   end
 end
